@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Crud_ADO_dotnet.ViewModel.Department>
+
+@{ 
+    ViewBag.Title = "Index"; 
+ }
+
+
+<button class="btn btn-success">@Html.ActionLink("Create Department", "Create", "Department")</button>
+
+<h2>Departments</h2>
+
+<table class="table table-bordered">
+    <tr style="background-color:burlywood">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var dept in Model)
+    {
+<tr>
+    <td>@dept.ID</td>
+    <td>@dept.Name</td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "Department", new { id = dept.ID}, new { @class = "btn btn-info" }) ||
+        @Html.ActionLink("Delete", "Delete", "Department", new { id = dept.ID }, new { @class = "btn btn-danger" })
+    </td>
+</tr>}
+</table>
+
